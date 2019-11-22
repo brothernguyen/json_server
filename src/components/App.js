@@ -9,7 +9,6 @@ class App extends React.Component {
     axios
       .get("http://localhost:3000/employees")
       .then(resp => {
-        console.log("==>response!!!", resp.data[0].account);
         // resp.data.forEach(e => {
         //     console.log(`${e.first_name}, ${e.last_name}, ${e.email}`);
         // });
