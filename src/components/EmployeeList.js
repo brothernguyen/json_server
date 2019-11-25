@@ -3,7 +3,11 @@ import { connect } from "react-redux";
 import { fetchEmployees } from "../actions";
 
 class EmployeeList extends React.Component {
+  componentDidMount() {
+    this.props.fetchEmployees();
+  }
   render() {
+    console.log("==>List:", this.props.employeeList);
     return (
       <div className="ui three column divided grid">
         <div className="row">
@@ -33,4 +37,10 @@ class EmployeeList extends React.Component {
   }
 }
 
-export default connect(null, { fetchEmployees })(EmployeeList);
+const mapStateToProps = state => {
+  return { employeeList: state.fetchAllEmployeesReducer };
+};
+
+export default connect(mapStateToProps, { fetchEmployees: fetchEmployees })(
+  EmployeeList
+);

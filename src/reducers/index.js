@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import fetchAllEmployees from "./fetchAllEmployeesReducer";
+import fetchAllEmployeesReducer from "./fetchAllEmployeesReducer";
 
 export default combineReducers({
-  fetchAllEmployees: fetchAllEmployees
+  fetchAllEmployeesReducer: fetchAllEmployeesReducer
 });
