@@ -7,31 +7,33 @@ class EmployeeList extends React.Component {
     this.props.fetchEmployees();
   }
   render() {
-    console.log("==>List:", this.props.employeeList);
+    const { employeeList = [] } = this.props;
+    console.log("==>List:", employeeList);
     return (
-      <div className="ui three column divided grid">
-        <div className="row">
-          <div className="column">
-            <p></p>
+      // <div className="ui two column divided grid">
+      <div className="ui link cards">
+        {employeeList.map(emp => (
+          <div key={emp.id} className="ui card">
+            <div className="image">
+              <img src={emp.account.image} alt="" />
+            </div>
+            <div className="content">
+              <div className="header">{emp.first_name}</div>
+              <div className="meta">
+                <span className="date">{emp.title}</span>
+              </div>
+              <div className="description">
+                Kristy is an art director living in New York.
+              </div>
+            </div>
+            <div className="extra content">
+              <a>
+                <i className="user icon"></i>
+                22 Friends
+              </a>
+            </div>
           </div>
-          <div className="column">
-            <p></p>
-          </div>
-          <div className="column">
-            <p></p>
-          </div>
-        </div>
-        <div className="row">
-          <div className="column">
-            <p></p>
-          </div>
-          <div className="column">
-            <p></p>
-          </div>
-          <div className="column">
-            <p></p>
-          </div>
-        </div>
+        ))}
       </div>
     );
   }
